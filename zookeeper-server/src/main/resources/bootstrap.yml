@@ -1,9 +1,17 @@
+#此配置必须名为bootstrap.properties,否则zookeeper不能识别启动
+server:
+  port: 1005
 spring:
+  application:
+    name: zookeeper
+  profiles:
+    active: dev
   cloud:
     zookeeper:
       connect-string: localhost:2181
       #指定springcloud 读取zookeeper路径的开始位置。选取你自己的目录
       config:
+        #指定根目录为/config   默认路径为 /config/${spring.application.name-spring.profiles.active}
         root: /config
         #开始zk的配置
         enabled: true
