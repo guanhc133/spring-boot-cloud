@@ -1,0 +1,15 @@
+server:
+  port: 1003
+
+spring:
+  profiles:
+    active: dev
+
+  application:
+    name: zookeeper
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

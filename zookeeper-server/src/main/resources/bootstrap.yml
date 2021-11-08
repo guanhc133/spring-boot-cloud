@@ -1,0 +1,13 @@
+spring:
+  cloud:
+    zookeeper:
+      connect-string: localhost:2181
+      #指定springcloud 读取zookeeper路径的开始位置。选取你自己的目录
+      config:
+        root: /config
+        #开始zk的配置
+        enabled: true
+        #配置文件分隔符
+        profile-separator: '-'
+      connection-timeout: 6000
+      session-timeout: 6000
