@@ -15,6 +15,6 @@ public class EurekaConsumerController {
 
     @GetMapping("/hello")
     public String sayHello() {
-        return feignService.sayHello("name");
+        return feignService.sayHello();
     }
 }
