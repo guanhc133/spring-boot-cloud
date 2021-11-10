@@ -2,6 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -9,6 +10,7 @@
         <module name="zookeeper-server" />
         <module name="eureka-server" />
         <module name="eureka-client-consumer" />
+        <module name="gateway-service" />
         <module name="eureka-client-provider" />
       </profile>
     </annotationProcessing>
@@ -21,6 +23,7 @@
       <module name="eureka-client-consumer" options="-parameters" />
       <module name="eureka-client-provider" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
+      <module name="gateway-service" options="-parameters" />
       <module name="nacos-config" options="-parameters" />
       <module name="spring-boot-cloud" options="-parameters" />
       <module name="zookeeper-server" options="-parameters" />

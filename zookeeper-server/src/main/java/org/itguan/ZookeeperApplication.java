@@ -4,7 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * Hello world!
+ * zookeeper作为配置中心
+ * 作为注册中心请切换springcloud-zookeeper分支查看
  */
 @SpringBootApplication
 public class ZookeeperApplication {

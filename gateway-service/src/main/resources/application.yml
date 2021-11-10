@@ -1,0 +1,41 @@
+server:
+  port: 1006
+
+spring:
+  profiles:
+    active: dev
+
+  application:
+    name: gateway-service
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          #开启从注册中心动态创建路由的功能
+          enabled: true
+          #使用小写服务名，默认是大写
+          lower-case-service-id: true
+      routes:
+        - id: gateway-service
+          #此处为转发的服务名称（因为网关也加入了eureka，方便动态路由，发现eureka中的所有服务）
+          uri: lb://eureka-client-consumer
+          predicates:
+            #请求携带/hello的统一转发到 localhost:1002/hello
+            - Path= /hello
+#          filters:
+#            - StripPrefix=1
+#            - name: Hystrix
+#              args:
+#                name: fallbackCmdA
+#                fallbackUri: forward:/fallbackA
+
+#指向eureka-server
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1001/eureka/
+
+logging:
+  pattern:
+    console: '%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{15} - %msg%n'

@@ -10,35 +10,21 @@
   </parent>
 
   <groupId>org.itguan</groupId>
-  <artifactId>eureka-client-provider</artifactId>
+  <artifactId>gateway-service</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>eureka-client-provider</name>
+  <name>gateway-service</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
   <dependencies>
     <dependency>
       <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
-      <exclusions>
-        <exclusion>
-          <groupId>com.sun.jersey</groupId>
-          <artifactId>jersey-client</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>com.sun.jersey</groupId>
-          <artifactId>jersey-core</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>com.sun.jersey.contribs</groupId>
-          <artifactId>jersey-apache-client4</artifactId>
-        </exclusion>
-      </exclusions>
+      <artifactId>spring-cloud-starter-gateway</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
     </dependency>
   </dependencies>
 </project>
