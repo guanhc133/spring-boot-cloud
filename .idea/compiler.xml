@@ -7,11 +7,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="zookeeper-server" />
-        <module name="eureka-server" />
-        <module name="eureka-client-consumer" />
         <module name="gateway-service" />
+        <module name="eureka-client-consumer" />
+        <module name="eureka-server" />
         <module name="eureka-client-provider" />
+        <module name="zookeeper-server" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -24,7 +24,6 @@
       <module name="eureka-client-provider" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
       <module name="gateway-service" options="-parameters" />
-      <module name="nacos-config" options="-parameters" />
       <module name="spring-boot-cloud" options="-parameters" />
       <module name="zookeeper-server" options="-parameters" />
     </option>
