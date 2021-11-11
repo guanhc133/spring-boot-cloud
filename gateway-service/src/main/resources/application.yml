@@ -1,13 +1,20 @@
 server:
   port: 1006
-
+eureka:
+  instance:
+    #每隔5s发送一次心跳
+    lease-renewal-interval-in-seconds: 5
+    #告知服务端10秒还未收到心跳的话，就将该服务移除列表
+    lease-expiration-duration-in-seconds: 10
+  client:
+    #默认为30秒
+    registry-fetch-interval-seconds: 5
+    serviceUrl:
+      #eureka注册中心地址
+      defaultZone: http://localhost:1001/eureka/
 spring:
-  profiles:
-    active: dev
-
   application:
     name: gateway-service
-
   cloud:
     gateway:
       discovery:
@@ -16,26 +23,9 @@ spring:
           enabled: true
           #使用小写服务名，默认是大写
           lower-case-service-id: true
-      routes:
-        - id: gateway-service
-          #此处为转发的服务名称（因为网关也加入了eureka，方便动态路由，发现eureka中的所有服务）
-          uri: lb://eureka-client-consumer
-          predicates:
-            #请求携带/hello的统一转发到 localhost:1002/hello
-            - Path= /hello
-#          filters:
-#            - StripPrefix=1
-#            - name: Hystrix
-#              args:
-#                name: fallbackCmdA
-#                fallbackUri: forward:/fallbackA
-
-#指向eureka-server
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:1001/eureka/
 
 logging:
   pattern:
     console: '%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{15} - %msg%n'
+  file:
+    path: D:/project/spring-boot-cloud/gateway-service

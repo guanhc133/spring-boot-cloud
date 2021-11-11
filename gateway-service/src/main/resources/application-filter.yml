@@ -1,0 +1,26 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: gateway-service
+          #此处为转发的服务名称（因为网关也加入了eureka，方便动态路由，发现eureka中的所有服务）
+          uri: lb://eureka-client-consumer
+          predicates:
+            #请求携带/hello的统一转发到 eureka-client-consumer上的 /hello 接口
+            #访问时用：http://localhost:1006/eureka-client-consumer/hello 带上服务名
+              - Path=/hello
+          filters:
+#            忽略请求的前缀  eg ： /hello/kk -> /kk
+#            - StripPrefix=1
+            - name: Hystrix
+              args:
+                name: fallbackcmd
+                fallback-uri: forward:/fallback
+
+hystrix:
+  command:
+    default:  #default全局有效，service id指定应用有效
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1000
