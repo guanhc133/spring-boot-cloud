@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 /**
  * 启用feign 并开启服务降级hystrix
  */
-@FeignClient(value = "eureka-client-provider",fallback = FeignServiceFallback.class)
+//@FeignClient(value = "eureka-client-provider",fallback = FeignServiceFallback.class)
 public interface FeignService {
 
-    @GetMapping("/hello")
-    String sayHello();
+//    @GetMapping("/hello")
+//    String sayHello();
 
 //    @Service
 //    default String fallback() {

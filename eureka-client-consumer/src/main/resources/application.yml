@@ -4,18 +4,22 @@ server:
 spring:
   profiles:
     active: dev
+  cloud:
+    nacos:  #配置Nacos的地址
+      server-addr: localhost:8848
 
   application:
-    name: eureka-client-consumer
+    name: nacos-client-consumer
+
 #指向eureka-server
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:1001/eureka/
-#新版本feign默认关闭，此处必须开启
-feign:
-  circuitbreaker:
-    enabled: true
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:1001/eureka/
+##新版本feign默认关闭，此处必须开启
+#feign:
+#  circuitbreaker:
+#    enabled: true
 
 logging:
   pattern:

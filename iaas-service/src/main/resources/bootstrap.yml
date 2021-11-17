@@ -1,0 +1,14 @@
+spring:
+  application:  # 应用名称
+    name: iaas-service
+  profiles:  #切换到开发环境上面
+    active: dev
+  cloud:
+    nacos:  #配置Nacos的地址
+      server-addr: localhost:8848
+      config:  # 配置文件的扩展名
+        file-extension: yaml  #存在nacos中，可动态配置读取文件 文件名： iaas-service-dev.yaml
+#management:
+#  endpoint:
+#    env:
+#      enabled: false
