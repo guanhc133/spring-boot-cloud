@@ -37,11 +37,36 @@ spring:
         enabled: true
       transport:
         dashboard: localhost:8080
+#        限流配置文件保存到nacos方便实时更新
       datasource:
+        #[
+        #  {
+        #    "resource": "nacos-client-consumer_router",
+        #    "resourceMode": 0 ,
+        #    "count": 5,
+        #    "intervalSec": 60
+        #  },
+        #  {
+        #    "resource": "nacos-client-consumer-api",
+        #    "resourceMode":"1",
+        #    "count": 1,
+        #    "intervalSec": 60
+        #  }
+        #]
           ds1.nacos:
             server-addr: localhost:8848
             dataId: gw-flow
             ruleType: gw_flow
+            #[
+              #  {
+              #    "apiName": "nacos-client-consumer-api",
+              #    "predicateItems": [
+              #      {
+              #        "pattern": "/like"
+              #      }
+              #    ]
+            #  }
+            #]
           ds2.nacos:
             server-addr: localhost:8848
             dataId: api-group
