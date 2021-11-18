@@ -16,10 +16,13 @@ spring:
           lower-case-service-id: true
       routes:
         - id: iaas-service_router
+#          负载到iaas-service服务
           uri: lb://iaas-service
           predicates:
+#              拦截路径
             - Path=/user/info
       #          filters:
+                    去除路径 eg：iaas-service/user/info -》 iaas-service/info
       #            - StripPrefix=1
 
   application:

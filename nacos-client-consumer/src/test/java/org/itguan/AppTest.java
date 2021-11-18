@@ -20,7 +20,7 @@ public class AppTest {
      * 测试本地调用远程服务（无token）自动获取token（token传递）
      */
     @Test
-    public void shouldAnswerWithTrue() {
+    public void passToken() {
         System.out.println(userServiceFeign.getUserBasics());
     }
 }
