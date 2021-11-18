@@ -2,32 +2,35 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
-      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="common-service" />
         <module name="gateway-service" />
-        <module name="eureka-client-consumer" />
-        <module name="eureka-server" />
-        <module name="eureka-client-provider" />
+        <module name="nacos-client-consumer" />
+        <module name="nacos-client-provider" />
         <module name="iaas-service" />
         <module name="zookeeper-server" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="nacos-config" target="1.8" />
+      <module name="common-service" target="1.8" />
+      <module name="gateway-service" target="1.8" />
+      <module name="iaas-service" target="1.8" />
+      <module name="nacos-client-consumer" target="1.8" />
+      <module name="nacos-client-provider" target="1.8" />
+      <module name="spring-boot-cloud" target="1.8" />
+      <module name="zookeeper-server" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="common-service" options="-parameters" />
-      <module name="eureka-client-consumer" options="-parameters" />
-      <module name="eureka-client-provider" options="-parameters" />
-      <module name="eureka-server" options="-parameters" />
       <module name="gateway-service" options="-parameters" />
       <module name="iaas-service" options="-parameters" />
+      <module name="nacos-client-consumer" options="-parameters" />
+      <module name="nacos-client-provider" options="-parameters" />
       <module name="spring-boot-cloud" options="-parameters" />
       <module name="zookeeper-server" options="-parameters" />
     </option>

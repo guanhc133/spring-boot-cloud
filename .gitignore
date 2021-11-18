@@ -1,0 +1,6 @@
+/gateway-service/target/
+/zookeeper-server/target/
+/nacos-client-provider/target/
+/nacos-client-consumer/target/
+/iaas-service/target/
+/common-service/target/
