@@ -1,3 +1,7 @@
+项目启动前准备：
+1，安装nacos，sentinel-dashboard，如果想启动zookeeper-server模块（用作配置中心，需安装zookeeper，zkui，可不启动，本项目示例用nacos作为配置中心）
+2，依次启动isaas-service，provider，consumer
+
 iaas-service 授权服务器 启动
 1，postman访问：http://localhost:1007/oauth/token?grant_type=password&username=1001&password=12345 为当前用户产生token 可到jwt.io解析验证
         ps：注意选到Authorization->type->basic auth username：auth-client password：auth-client
@@ -22,4 +26,20 @@ common-service
     
 gateway-service
 1，通过网关访问/user/info，了解路由机制
+
+
+
+总结：
+    比较重要的几个类:
+    1，AuthorizationConfig 授权服务器配置实现，包含
+    指定第三方客户端，token有效期，refresh_token等，
+    指定用户角色，权限，密码等数据来源（自定义userDetailsService），以及指定公私钥用作token的加解密
+    2，isaas-service中ResourceServerConfig加@EnableResourceServer将所在项目作为资源服务器（也就是对外暴露的接口需要权限校验）
+    
+    3，所有需要授权操作的都需要依赖common-service模块，里面ResourceServerConfig类指定了校验规则（配置哪些接口路径需要校验及用公钥解密）
+    4，OAuth2FeignConfig类用作拦截访问需授权接口的请求，在请求头加上token，仅针对于非http访问（仅通过接口直接的调用是没有token请求头的概念的，所以无法访问授权接口）
+    
+   
+    
+   
 
